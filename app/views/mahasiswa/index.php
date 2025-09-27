@@ -1,9 +1,12 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-lg-6">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
-            Tambah data Mahasiswa
-            </button>
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-primary tambahData" data-bs-toggle="modal" data-bs-target="#formModal">Tambah data Mahasiswa</button>
             <br><br>
             <h3>Daftar Mahasiswa</h3>
                 <ul class="list-group">                
