@@ -25,8 +25,24 @@ class Mahasiswa extends Controller{
             exit;
         }
     }
-    public function edit(){
-        
+    public function ubah($id){
+        $data['jdl']='Ubah Data Mahasiswa';
+        $data['mhs']=$this->model('Mahasiswa_model')->getMahasiswaById($id);        
+        $this->view('templates/header', $data);
+        $this->view('mahasiswa/ubah', $data);
+        $this->view('templates/footer');
+    }
+
+    public function update()  {
+        if ($this->model('Mahasiswa_model')->updateMahasiswa($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else{
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
     }
 
     public function hapus($id) {
