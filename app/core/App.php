@@ -22,14 +22,16 @@ class App {
                 unset($url[1]);
             }
         }
-
-        if (!empty($url)) {
+        
+        // if(!empty($url)){
+        if (isset($url)) {
             $this->params=array_values($url);
         }
 
         call_user_func_array([$this->controller, $this->method], $this->params);
         
         // var_dump($url);
+        // var_dump($this->params);
     }
 
     public function parse_url(){
